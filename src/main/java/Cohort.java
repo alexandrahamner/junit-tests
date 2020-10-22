@@ -6,6 +6,7 @@ public class Cohort {
     private List<Student> students;
 
     public Cohort() {
+
         this.students = new ArrayList<>();
     }
 
@@ -18,6 +19,7 @@ public class Cohort {
     }
 
     public void addStudent(Student student){
+
         students.add(student);
     }
 
