@@ -1,42 +1,46 @@
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class StudentTest {
 
-    Student fer;
-    Student ryan;
+    Student student1;
+    Student student2;
 
     @Before
     public void setUp(){
-        fer = new Student(1L, "fer");
-        ryan = null;
-        fer.addGrade(100);
-        fer.addGrade(80);
+        student1 = new Student(214567L, "Jack Smith");
+        student1.addGrades(85);
+        student1.addGrades(95);
+        student1.addGrades(66);
+        student2 = null;
     }
 
     @Test
-    public void testCreateStudent(){
-        assertNull(ryan);
-        assertNotNull(fer);
+    public void testIfStudentConstructorWorks(){
+        assertNotNull(student1);
+        assertNull(student2);
     }
 
     @Test
-    public void testStudentFields(){
-        assertSame(1L, fer.getId());
-        assertSame("fer", fer.getName());
-        assertSame(2, fer.getGrades().size());
-    }
-
-
-    @Test
-    public void testAddGrade(){
-        assertSame(100, fer.getGrades().get(0));
-        assertSame(80, fer.getGrades().get(1));
+    public void testIfGetterWorks(){
+        assertEquals(214567L, student1.getId());
+        assertNotEquals(1L, student1.getId());
+        assertEquals("Jack Smith", student1.getName());
+        assertNotEquals("John Smith", student1.getName());
+        assertEquals(95, (int) student1.getGrades().get(1));
+        assertNotEquals(95, (int) student1.getGrades().get(0));
     }
 
     @Test
-    public void testAverageGrade(){
-        assertEquals(90, fer.getGradeAverage(), 0);
+    public void testIfAddGradesWorks(){
+        assertEquals(3, student1.getGrades().size());
+    }
+
+    @Test
+    public void testIfGetGradeAverageWorks(){
+        assertEquals(82.0, student1.getGradeAverage(), 0.1);
     }
 }
+

@@ -34,5 +34,7 @@ public class Student {
             sum += grade;
         }
         return sum / this.grades.size() ;
+
+    
     }
 }
